@@ -1,0 +1,23 @@
+---Synatx---
+
+AzureAppGwMigration.ps1
+ -resourceId <v1 application gateway Resource ID>
+ -subnetAddressRange <subnet space you want to use>
+ -appgwName <string to use to append>
+ -sslCertificates <comma-separated SSLCert objects as above>
+ -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
+ -privateIpAddress <private IP string>
+ -publicIpResourceId <public IP name string>
+ -validateMigration -enableAutoScale
+ 
+ ---End---
+ 
+ Working Sample
+ 
+ AzureAppGwMigration.ps1 `
+ -resourceId /subscriptions/0cddfd98-d158-42e1-83c1-3990c10cd4b6/resourceGroups/rg-test/providers/Microsoft.Network/applicationGateways/apgw-v1 `
+ -subnetAddressRange 11.0.0.0/24 `
+ -appgwName "apgw-v2" `
+ -privateIpAddress "11.0.0.10" `
+ -publicIpResourceId "/subscriptions/0cddfd98-d158-42e1-83c1-3990c10cd4b6/resourceGroups/rg-test/providers/Microsoft.Network/publicIPAddresses/V2AppGw1PIP" `
+ -validateMigration -enableAutoScale
